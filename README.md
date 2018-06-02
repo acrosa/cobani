@@ -2,8 +2,6 @@
 
 A bunch of simple scripts to run ML models against your own webcams.
 
-![Cobani](slack.png "Cobani")
-
 ## Requirements
 
 Python 2.x, Cobani uses a bunch of libraries, to install them simply run:
