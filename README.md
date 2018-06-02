@@ -16,11 +16,15 @@ Note you don't need all the libraries installed, for example only `--training` a
 
 * Edit the `.cobani` file to reflect your setup. In my case I'm using the Nest cameras, so you'll need to enter your Nest “access token”.
 
+### Fetching images from cameras
+
 * `python app.py --picamera --repeat 30`
   Will fetch images from the Raspberry Pi camera every 30 seconds, and stores them in a folder under `images/all/`.
 
 * `python app.py --nest --repeat 30`
   Will fetch images (every 30 seconds) from all the Nest cameras associated with your Nest token that's entered in your `.cobani` settings file. Images are stored in a folder under `images/all/`.
+
+### Train machine learning model with your camera images
 
 * `python app.py --train`
   Will train a model based on the images found under `images/labeled/`.
@@ -45,6 +49,8 @@ Note you don't need all the libraries installed, for example only `--training` a
 
 * `python app.py --predict --repeat 90`
   Runs the previously trained machine learning model with your own data. It will read all the camera sources available, run the model and store the results in the `predictions/` folder. This is heavy to run on a Raspberry Pi Zero so use the `--repeat` flag with at least 90 seconds between runs or more.
+
+### Slack bots to interact with the camera detections
 
 * `python app.py --slack`
   Starts a Slack bot that answers questions about your house. See the plugins section to extend it's capabilities.
