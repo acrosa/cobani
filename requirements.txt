@@ -1,0 +1,7 @@
+tensorflow-gpu
+tensorflow_hub
+numpy
+Pillow
+slackbot
+slackclient
+picamera
