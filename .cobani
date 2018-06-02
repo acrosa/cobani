@@ -1,0 +1,21 @@
+[nest]
+# token = 
+
+[cameras]
+# fgn3IgBBGKU = Front Door
+# gNwqDvLEvKs = Daughter's Room
+# picamera = unused
+
+[slack]
+api-token = 
+channel = 
+
+[tensorflow]
+hub_model = https://tfhub.dev/google/imagenet/mobilenet_v1_100_224/feature_vector/1
+labeled_images = images/labeled
+input_width = 224
+input_height = 224
+model_file = model/output_graph.pb
+label_file = model/output_labels.txt
+input_layer = Placeholder
+output_layer = final_result
