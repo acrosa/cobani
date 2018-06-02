@@ -2,6 +2,8 @@
 
 A bunch of simple scripts to run ML models against your own webcams.
 
+![Cobani](slack.png "Cobani")
+
 ## Requirements
 
 Python 2.x, Cobani uses a bunch of libraries, to install them simply run:
@@ -40,6 +42,8 @@ Note you don't need all the libraries installed, for example only `--training` a
     │   ├── 1526751127.270875.jpg
     │   ...
   ```
+
+  Make sure to add at least a hundred or more images to be able to learn from them. Also try to have a similar number of images for all categories.
 
 * `python app.py --predict --repeat 90`
   Runs the previously trained machine learning model with your own data. It will read all the camera sources available, run the model and store the results in the `predictions/` folder. This is heavy to run on a Raspberry Pi Zero so use the `--repeat` flag with at least 90 seconds between runs or more.
