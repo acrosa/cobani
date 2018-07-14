@@ -67,13 +67,16 @@ def resize_image(filename, destination_max_width=500, destination_max_height=500
     image.save(filename, "JPEG")
 
 
-def store_camera_image(token):
+def store_camera_image(token, store=True):
     try:
         print("Downloading image from cameras...")
         camera_images = fetch_snapshots_urls(token)
         for camera_key in camera_images:
             image_url = camera_images[camera_key]
-            filename = timestamp_filename()
+            if store:
+                filename = timestamp_filename()
+            else:
+                filename = "live.jpg"
             directory = "images/all/" + camera_key
             if not os.path.exists(directory):
                 os.makedirs(directory)
@@ -85,12 +88,12 @@ def store_camera_image(token):
         print("Exception trying to fetch camera image. Error: " + str(e))
 
 
-def fetch(config, repeat=-1):
+def fetch(config, repeat=-1, store=True):
     token = config.get("nest", "token")
     if repeat > 0:
         print("repeats every " + str(repeat) + " seconds.")
         while(True):
-            store_camera_image(token)
+            store_camera_image(token, store)
             time.sleep(repeat)
     else:
-        store_camera_image(token)
+        store_camera_image(token, store)

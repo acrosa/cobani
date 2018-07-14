@@ -36,6 +36,8 @@ if __name__ == "__main__":
                         help="fetches last image from Nest cameras.", action='store_true')
     parser.add_argument("--repeat", required=False,
                         help="keeps fetching new images with the delay specified in seconds.", default=-1)
+    parser.add_argument("--store", required=False,
+                        help="keeps only one photo as the latest image.", default=True)
 
     # fetch Nest camera images and store them locally
     parser.add_argument("--picamera", required=False,
@@ -47,7 +49,7 @@ if __name__ == "__main__":
     # Get the arguments.
     if args.nest:
         print("[RUN] Fetching Nest images")
-        lib.nest.fetch(config, int(args.repeat))
+        lib.nest.fetch(config, int(args.repeat), args.store == "true")
 
     if args.picamera:
         print("[RUN] Fetching Raspberry Pi Camera images")
